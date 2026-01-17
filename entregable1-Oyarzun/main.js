@@ -15,6 +15,7 @@ const carritoDiv = document.getElementById("carrito");
 const totalesDiv = document.getElementById("totales");
 const btnFinalizar = document.getElementById("btn-finalizar");
 const btnVaciar = document.getElementById("btn-vaciar");
+const mensajeDiv = document.getElementById("mensaje");
 
 function renderCatalogo() {
     catalogoDiv.innerHTML = "";
@@ -79,16 +80,19 @@ btnVaciar.addEventListener("click", () =>{
     carrito = [];
     guardarCarrito();
     renderCarrito();
+    mensajeDiv.innerHTML = "";
 });
 
 // Finalizar compra
 btnFinalizar.addEventListener("click", () =>{
     if (carrito.length === 0){
         totalesDiv.innerHTML = "El carrito esta vacio";
+        mensajeDiv.innerHTML = "";
         return;
     }
 
-    alert("Compra confirmada (simulada)");
+    mensajeDiv.innerHTML = "<strong>Compra confirmada!</strong>";
+
     carrito = [];
     guardarCarrito();
     renderCarrito();
